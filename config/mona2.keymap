@@ -106,7 +106,7 @@
 
         toggle_us_jis {
             slot = <2>;
-            display-name = "Toggle US<->JIS"
+            display-name = "Toggle US<->JIS";
             key-positions = <4 5>;
             bindings = <&tog_ls>;
         };
