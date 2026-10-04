@@ -108,7 +108,7 @@
             display-name = "Toggle US<->JIS"
             key-positions = <4 5>;
             bindings = <&tog_ls>;
-        }
+        };
     };
 
     /* 静的マクロ。キーマップ上で &BT0 / &screenshot などの名前で直接
