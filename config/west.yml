@@ -130,11 +130,16 @@ manifest:
     # マージ済みのため main を参照する。ZMK v0.4 の endpoints API 改名対応と
     # 慣性スクロールの既定オフもモジュール側に取り込まれているので、
     # 以前あった互換シム (compat/) は不要になり削除した。
-    - name: zmk-mouse-gesture
-      remote: shakushakupanda
+    - name    : zmk-mouse-gesture
+      remote  : shakushakupanda
       revision: suppress-cursor-while-active
-    - name: zmk-module-mouse-gesture-rpc
-      remote: shakushakupanda
+    - name    : zmk-module-mouse-gesture-rpc
+      remote  : shakushakupanda
       revision: main
+    # Layout Shift Module
+    - name    : zmk-layout-shift
+      remote  : kot149
+      revision: v2
+
   self:
     path: config
