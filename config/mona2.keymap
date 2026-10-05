@@ -213,7 +213,7 @@
         };
 
         rsr_right_left: rsr_right_left {
-            compatible = "zmk,behavior-sensor-rotate";
+            compatible = "zmk,behavior-runtime-sensor-rotate";
             #sensor-binding-cells = <0>;
             tap-ms = <16>;
             cw-binding = <&msc SCRL_LEFT>;
