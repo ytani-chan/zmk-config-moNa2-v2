@@ -20,7 +20,6 @@
 #include <dt-bindings/zmk/pointing.h>
 /* ZMK Layout Shift Module */
 #include <layout_shift_kp_override.dtsi>
-#include <dt-bindings/zmk/mouse.h>
 
 /* ZMK 側で 10 が定義済みなので警告回避のため一旦 undef */
 
@@ -408,6 +407,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans    &trans    &trans    &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                &trans
             >;
+
+            sensor-bindings = <&rsr_up_down>;
         };
 
         shortcut_mac {
@@ -418,6 +419,8 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
             >;
+
+            sensor-bindings = <&rsr_up_down>;
         };
 
         ble_win {
