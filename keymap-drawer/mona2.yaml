@@ -5,13 +5,13 @@ layers:
   - W
   - E
   - R
-  - {t: T, h: Shortcut_Win}
-  - {t: Y, h: Shortcut_Win}
+  - T
+  - Y
   - U
   - I
   - O
   - {t: P, h: Scroll_Win}
-  - A
+  - {t: A, h: Mouse_Win}
   - {t: S, h: LCTRL}
   - {t: D, h: LALT}
   - {t: F, h: LGUI}
@@ -27,8 +27,8 @@ layers:
   - C
   - V
   - B
-  - '@'
-  - ''''
+  - {t: '@', h: Shortcut_Win}
+  - {t: '''', h: Shortcut_Win}
   - N
   - M
   - ','
@@ -39,22 +39,22 @@ layers:
   - LGUI
   - {t: LANG2, h: Number_Win}
   - {t: SPACE, h: Symbol_Win}
-  - {t: LANG1, h: Shortcut_Win}
-  - BACKSPACE
-  - ENTER
+  - {t: LANG1, h: Mouse_Win}
+  - BSPC
+  - {t: ENTER, h: Symbol_Win}
   - Ble_Win
   Mac:
   - Q
   - W
   - E
   - R
-  - {t: T, h: Shortcut_Mac}
-  - {t: Y, h: Shortcut_Mac}
+  - T
+  - Y
   - U
   - I
   - O
   - {t: P, h: Scroll_Mac}
-  - A
+  - {t: A, h: Mouse_Mac}
   - {t: S, h: LCTRL}
   - {t: D, h: LALT}
   - {t: F, h: LGUI}
@@ -70,8 +70,8 @@ layers:
   - C
   - V
   - B
-  - '@'
-  - ''''
+  - {t: '@', h: Shortcut_Mac}
+  - {t: '''', h: Shortcut_Mac}
   - N
   - M
   - ','
@@ -82,9 +82,9 @@ layers:
   - LGUI
   - {t: LANG2, h: Number_Mac}
   - {t: SPACE, h: Symbol_Mac}
-  - {t: LANG1, h: Shortcut_Mac}
-  - BACKSPACE
-  - ENTER
+  - {t: LANG1, h: Mouse_Mac}
+  - BSPC
+  - {t: ENTER, h: Symbol_Mac}
   - Ble_Mac
   Number_Win:
   - /
@@ -108,7 +108,7 @@ layers:
   - F7
   - F8
   - {t: ▽, type: trans}
-  - {t: '0', h: LEFT SHIFT}
+  - {t: '0', h: LSHFT}
   - '1'
   - '2'
   - '3'
@@ -119,7 +119,7 @@ layers:
   - F2
   - F3
   - F4
-  - RIGHT SHIFT
+  - RSHFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -151,7 +151,7 @@ layers:
   - F7
   - F8
   - {t: ▽, type: trans}
-  - {t: '0', h: LEFT SHIFT}
+  - {t: '0', h: LSHFT}
   - '1'
   - '2'
   - '3'
@@ -162,7 +162,7 @@ layers:
   - F2
   - F3
   - F4
-  - RIGHT SHIFT
+  - RSHFT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -216,38 +216,38 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   Symbol_Mac:
+  - /
+  - Sft+7
+  - ''''
+  - '`'
+  - '-'
+  - {t: ▽, type: trans}
+  - Sft+9
+  - Sft+0
+  - '&parenthesis'
+  - {t: ▽, type: trans}
+  - Sft+8
+  - Sft+4
+  - Alt+Y
+  - Sft+6
+  - '='
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '['
+  - ']'
+  - '&brackets'
+  - '&jp_kakko'
+  - {t: \, h: LSHFT}
+  - Sft+1
+  - Sft+2
+  - Sft+3
+  - .
+  - Sft+5
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Sft+[
+  - Sft+]
+  - '&braces'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -261,7 +261,7 @@ layers:
   Mouse_Win:
   - {t: ▽, type: trans}
   - PG UP
-  - UP ARROW
+  - UP
   - PG DN
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -269,17 +269,17 @@ layers:
   - '&henkan'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - LEFT ARROW
-  - DOWN ARROW
-  - RIGHT ARROW
+  - {type: held}
+  - LEFT
+  - DOWN
+  - RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&mkp MB1'
   - '&mkp MB3'
   - '&mkp MB2'
-  - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - HOME
   - '&screenshot'
@@ -304,7 +304,7 @@ layers:
   Mouse_Mac:
   - {t: ▽, type: trans}
   - PG UP
-  - UP ARROW
+  - UP
   - PG DN
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -312,17 +312,17 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - LEFT ARROW
-  - DOWN ARROW
-  - RIGHT ARROW
+  - {type: held}
+  - LEFT
+  - DOWN
+  - RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&mkp MB1'
   - '&mkp MB3'
   - '&mkp MB2'
-  - {type: held}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - HOME
   - {t: ▽, type: trans}
@@ -347,7 +347,7 @@ layers:
   Scroll_Win:
   - {t: ▽, type: trans}
   - PG UP
-  - UP ARROW
+  - UP
   - PG DN
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -356,9 +356,9 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  - LEFT ARROW
-  - DOWN ARROW
-  - RIGHT ARROW
+  - LEFT
+  - DOWN
+  - RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -390,7 +390,7 @@ layers:
   Scroll_Mac:
   - {t: ▽, type: trans}
   - PG UP
-  - UP ARROW
+  - UP
   - PG DN
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -399,9 +399,9 @@ layers:
   - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  - LEFT ARROW
-  - DOWN ARROW
-  - RIGHT ARROW
+  - LEFT
+  - DOWN
+  - RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -435,29 +435,29 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -478,35 +478,35 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Ctl+Alt+BSPC
+  - Ctl+Alt+U
+  - Ctl+Alt+UP
+  - Ctl+Alt+I
+  - Ctl+Alt+ENTER
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Ctl+Alt+Gui+LEFT
+  - Ctl+Alt+LEFT
+  - Ctl+Alt+C
+  - Ctl+Alt+RIGHT
+  - Ctl+Alt+Gui+RIGHT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {type: held}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Hyper+LEFT
+  - Ctl+Alt+J
+  - Ctl+Alt+DOWN
+  - Ctl+Alt+K
+  - Hyper+RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
