@@ -178,6 +178,51 @@
 
             label = "HENKAN";
         };
+
+        parenthesis: parenthesis {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = 
+                <&kp LANG2>,
+                <&macro_wait_time 50>,
+                <&kp LEFT_PARENTHESIS>,
+                <&kp RIGHT_PARENTHESIS>,
+                <&kp LEFT>;
+        };
+
+        brackets: brackets {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = 
+                <&kp LANG2>,
+                <&macro_wait_time 50>,
+                <&kp LEFT_BRACKET>,
+                <&kp RIGHT_BRACKET>,
+                <&kp LEFT>;
+        };
+
+        braces: braces {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = 
+                <&kp LANG2>,
+                <&macro_wait_time 50>,
+                <&kp LEFT_BRACE>,
+                <&kp RIGHT_BRACE>,
+                <&kp LEFT>;
+        };
+
+        jp_kakko: jp_kakko {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = 
+                <&kp LANG1>,
+                <&macro_wait_time 50>,
+                <&kp LEFT_BRACKET>,
+                <&kp RIGHT_BRACKET>,
+                <&kp ENTER>,
+                <&kp LEFT>;
+        };
     };
 
     behaviors {
@@ -204,6 +249,7 @@
         // DYA Studio Web UI から レイヤーごとに cw/ccw の binding を
         // kp C_VOL_UP/DN や kp LEFT/RIGHT などへ動的変更可能
 
+        /*
         rsr_up_down: rsr_up_down {
             compatible = "zmk,behavior-runtime-sensor-rotate";
             #sensor-binding-cells = <0>;
@@ -218,6 +264,15 @@
             tap-ms = <16>;
             cw-binding = <&msc SCRL_LEFT>;
             ccw-binding = <&msc SCRL_RIGHT>;
+        };
+        */
+
+        rsr_mouse_scroll: mouse_wheel_scroll {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+            // 追加: スクロールのタップ時間を設定 (20ms)
+            tap-ms = <20>;
         };
 
         tog_on: toggle_layer_on_only {
@@ -271,10 +326,12 @@
         13  :   Ble_Mac
     */
     /* moNa2 Physical Key Layout
-        K0      K1      K2      K3      K4                          K5      K6      K7      K8      K9  \
-        K10     K11     K12     K13     K14                 K15     K16     K17     K18     K19     K20 \
-        K21     K22     K23     K24     K25     K26         K27     K28     K29     K30     K31     K32 \
-        K33     K34     K35     K36     K37     K38         K39     K40                             K41 \
+        bindings = <
+            K0      K1      K2      K3      K4                          K5      K6      K7      K8      K9
+            K10     K11     K12     K13     K14                 K15     K16     K17     K18     K19     K20
+            K21     K22     K23     K24     K25     K26         K27     K28     K29     K30     K31     K32
+            K33     K34     K35     K36     K37     K38         K39     K40                             K41
+        >;
     */
     keymap {
         compatible = "zmk,keymap";
@@ -282,49 +339,49 @@
         win_layer {
             display-name = "Win";
             bindings = <
-&kp Q             &kp W         &kp E         &kp R        &lt 10 T                                   &lt 10 Y       &kp U      &kp I      &kp O        &lt 8 P
-&kp A             &mt LCTRL S   &mt LALT D    &mt LGUI F   &kp G                       &kp MINUS      &kp H          &mt RGUI J &mt RALT K &mt RCTRL L  &lt 6 SEMICOLON
-&mt LSHFT Z       &kp X         &kp C         &kp V        &kp B        &kp AT_SIGN    &kp SQT        &kp N          &kp M      &kp COMMA  &kp DOT      &mt RSHFT SLASH
-&kp LCTRL         &kp LALT      &kp LGUI      &lt 2 LANG2  &lt 4 SPACE  &lt 10 LANG1   &kp BACKSPACE  &kp ENTER                                         &mo 12
+&kp Q             &kp W         &kp E         &kp R        &kp T                                       &kp Y          &kp U      &kp I      &kp O        &lt 8 P
+&lt 6 A           &mt LCTRL S   &mt LALT D    &mt LGUI F   &kp G                        &kp MINUS      &kp H          &mt RGUI J &mt RALT K &mt RCTRL L  &lt 6 SEMICOLON
+&mt LSHFT Z       &kp X         &kp C         &kp V        &kp B        &lt 10 AT       &lt 10 SQT     &kp N          &kp M      &kp COMMA  &kp DOT      &mt RSHFT SLASH
+&kp LCTRL         &kp LALT      &kp LGUI      &lt 2 LANG2  &lt 4 SPACE  &lt 6 LANG1     &kp BSPC       &lt 4 ENTER                                       &mo 12
             >;
 
-            sensor-bindings = <&rsr_up_down>, <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>, <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         mac_layer {
             display-name = "Mac";
             bindings = <
-&kp Q             &kp W         &kp E         &kp R        &lt 11 T                                   &lt 11 Y       &kp U      &kp I      &kp O        &lt 9 P
-&kp A             &mt LCTRL S   &mt LALT D    &mt LGUI F   &kp G                       &kp MINUS      &kp H          &mt RGUI J &mt RALT K &mt RCTRL L  &lt 7 SEMICOLON
-&mt LSHFT Z       &kp X         &kp C         &kp V        &kp B        &kp AT_SIGN    &kp SQT        &kp N          &kp M      &kp COMMA  &kp DOT      &mt RSHFT SLASH
-&kp LCTRL         &kp LALT      &kp LGUI      &lt 3 LANG2  &lt 5 SPACE  &lt 11 LANG1   &kp BACKSPACE  &kp ENTER                                         &mo 13
+&kp Q             &kp W         &kp E         &kp R        &kp T                                       &kp Y          &kp U      &kp I      &kp O        &lt 9 P
+&lt 7 A           &mt LCTRL S   &mt LALT D    &mt LGUI F   &kp G                        &kp MINUS      &kp H          &mt RGUI J &mt RALT K &mt RCTRL L  &lt 7 SEMICOLON
+&mt LSHFT Z       &kp X         &kp C         &kp V        &kp B        &lt 11 AT       &lt 11 SQT     &kp N          &kp M      &kp COMMA  &kp DOT      &mt RSHFT SLASH
+&kp LCTRL         &kp LALT      &kp LGUI      &lt 3 LANG2  &lt 5 SPACE  &lt 7 LANG1     &kp BSPC       &lt 5 ENTER                                       &mo 13
             >;
 
-            sensor-bindings = <&rsr_up_down>, <&inc_dec_kp C_VOL_DN C_VOL_UP>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>, <&inc_dec_kp C_VOL_DN C_VOL_UP>;
         };
 
         num_win {
             display-name = "Number_Win";
             bindings = <
-&kp SLASH         &kp N7 &kp N8 &kp N9 &kp MINUS                       &kp F9   &kp F10 &kp F11 &kp F12 &trans
-&kp ASTERISK      &kp N4 &kp N5 &kp N6 &kp EQUAL                &trans &kp F5   &kp F6  &kp F7  &kp F8  &trans
-&mt LEFT_SHIFT N0 &kp N1 &kp N2 &kp N3 &kp DOT   &kp PERCENT    &trans &kp F1   &kp F2  &kp F3  &kp F4  &kp RIGHT_SHIFT
-&trans            &trans &trans &trans &trans    &trans         &trans &trans                           &trans
+&kp SLASH       &kp N7 &kp N8 &kp N9 &kp MINUS                       &kp F9   &kp F10 &kp F11 &kp F12 &trans
+&kp ASTERISK    &kp N4 &kp N5 &kp N6 &kp EQUAL                &trans &kp F5   &kp F6  &kp F7  &kp F8  &trans
+&mt LSHFT N0    &kp N1 &kp N2 &kp N3 &kp DOT   &kp PERCENT    &trans &kp F1   &kp F2  &kp F3  &kp F4  &kp RSHFT
+&trans          &trans &trans &trans &trans    &trans         &trans &trans                           &trans
             >;
 
-            sensor-bindings = <&rsr_up_down>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         num_mac {
             display-name = "Number_Mac";
             bindings = <
-&kp SLASH         &kp N7 &kp N8 &kp N9 &kp MINUS                       &kp F9   &kp F10 &kp F11 &kp F12 &trans
-&kp ASTERISK      &kp N4 &kp N5 &kp N6 &kp EQUAL                &trans &kp F5   &kp F6  &kp F7  &kp F8  &trans
-&mt LEFT_SHIFT N0 &kp N1 &kp N2 &kp N3 &kp DOT   &kp PERCENT    &trans &kp F1   &kp F2  &kp F3  &kp F4  &kp RIGHT_SHIFT
-&trans            &trans &trans &trans &trans    &trans         &trans &trans                           &trans
+&kp SLASH       &kp N7 &kp N8 &kp N9 &kp MINUS                       &kp F9   &kp F10 &kp F11 &kp F12 &trans
+&kp ASTERISK    &kp N4 &kp N5 &kp N6 &kp EQUAL                &trans &kp F5   &kp F6  &kp F7  &kp F8  &trans
+&mt LSHFT N0    &kp N1 &kp N2 &kp N3 &kp DOT   &kp PERCENT    &trans &kp F1   &kp F2  &kp F3  &kp F4  &kp RSHFT
+&trans          &trans &trans &trans &trans    &trans         &trans &trans                           &trans
             >;
 
-            sensor-bindings = <&rsr_up_down>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         symbol_win {
@@ -336,67 +393,67 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
             >;
 
-            sensor-bindings = <&rsr_up_down>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         symbol_mac {
             display-name = "Symbol_Mac";
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
+&kp SLASH       &kp LS(N7)  &kp SQT     &kp GRAVE   &kp MINUS                       &trans  &kp LS(N9)      &kp LS(N0)      &parenthesis    &trans
+&kp LS(N8)      &kp LS(N4)  &kp LA(Y)   &kp LS(N6)  &kp EQUAL               &trans  &trans  &kp LBKT        &kp RBKT        &brackets       &jp_kakko
+&mt LSHFT BSLH  &kp LS(N1)  &kp LS(N2)  &kp LS(N3)  &kp DOT     &kp LS(N5)  &trans  &trans  &kp LS(LBKT)    &kp LS(RBKT)    &braces         &trans
+&trans          &trans      &trans      &trans      &trans      &trans      &trans  &trans                                                  &trans
             >;
 
-            sensor-bindings = <&rsr_up_down>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         mouse_win {
             display-name = "Mouse_Win";
             bindings = <
-&trans  &kp PG_UP       &kp UP_ARROW    &kp PG_DN        &trans                             &trans      &trans          &henkan         &trans          &trans
-&trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans                 &trans      &trans      &mkp MB1        &mkp MB3        &mkp MB2        &trans
+&trans  &kp PG_UP       &kp UP          &kp PG_DN        &trans                             &trans      &trans          &henkan         &trans          &trans
+&trans  &kp LEFT        &kp DOWN        &kp RIGHT        &trans                 &trans      &trans      &mkp MB1        &mkp MB3        &mkp MB2        &trans
 &trans  &kp HOME        &screenshot     &kp END          &trans     &trans      &trans      &trans      &mkp MB4        &mo 8           &mkp MB5        &trans
 &trans  &trans          &trans          &trans           &trans     &trans      &trans      &trans                                                      &trans
             >;
 
-            sensor-bindings = <&rsr_up_down>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         mouse_mac {
             display-name = "Mouse_Mac";
             bindings = <
-&trans  &kp PG_UP       &kp UP_ARROW    &kp PG_DN        &trans                             &trans      &trans          &trans          &trans          &trans
-&trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans                 &trans      &trans      &mkp MB1        &mkp MB3        &mkp MB2        &trans
-&trans  &kp HOME        &trans          &kp END          &trans     &trans      &trans      &trans      &mkp MB4        &mo 9           &mkp MB5        &trans
-&trans  &trans          &trans          &trans           &trans     &trans      &trans      &trans                                                      &trans
+&trans  &kp PG_UP   &kp UP    &kp PG_DN     &trans                             &trans      &trans          &trans          &trans          &trans
+&trans  &kp LEFT    &kp DOWN  &kp RIGHT     &trans                 &trans      &trans      &mkp MB1        &mkp MB3        &mkp MB2        &trans
+&trans  &kp HOME    &trans    &kp END       &trans     &trans      &trans      &trans      &mkp MB4        &mo 9           &mkp MB5        &trans
+&trans  &trans      &trans    &trans        &trans     &trans      &trans      &trans                                                      &trans
             >;
 
-            sensor-bindings = <&rsr_up_down>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         scroll_win {
             display-name = "Scroll_Win";
             bindings = <
-&trans  &kp PG_UP       &kp UP_ARROW    &kp PG_DN        &trans                             &trans      &trans          &henkan         &trans          &trans
-&trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans                 &trans      &trans      &mkp MB1        &mkp MB3        &mkp MB2        &trans
-&trans  &kp HOME        &screenshot     &kp END          &trans     &trans      &trans      &trans      &mkp MB4        &mo 8           &mkp MB5        &trans
-&trans  &trans          &trans          &trans           &trans     &trans      &trans      &trans                                                      &trans
+&trans  &kp PG_UP   &kp UP          &kp PG_DN   &trans                             &trans      &trans          &henkan         &trans          &trans
+&trans  &kp LEFT    &kp DOWN        &kp RIGHT   &trans                 &trans      &trans      &mkp MB1        &mkp MB3        &mkp MB2        &trans
+&trans  &kp HOME    &screenshot     &kp END     &trans     &trans      &trans      &trans      &mkp MB4        &mo 8           &mkp MB5        &trans
+&trans  &trans      &trans          &trans      &trans     &trans      &trans      &trans                                                      &trans
             >;
 
-            sensor-bindings = <&rsr_right_left>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_LEFT SCRL_RIGHT>;
         };
 
         scroll_mac {
             display-name = "Scroll_Mac";
             bindings = <
-&trans  &kp PG_UP       &kp UP_ARROW    &kp PG_DN        &trans                             &trans      &trans          &trans          &trans          &trans
-&trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &trans                 &trans      &trans      &mkp MB1        &mkp MB3        &mkp MB2        &trans
-&trans  &kp HOME        &trans          &kp END          &trans     &trans      &trans      &trans      &mkp MB4        &mo 9           &mkp MB5        &trans
-&trans  &trans          &trans          &trans           &trans     &trans      &trans      &trans                                                      &trans
+&trans  &kp PG_UP   &kp UP      &kp PG_DN   &trans                             &trans      &trans          &trans          &trans          &trans
+&trans  &kp LEFT    &kp DOWN    &kp RIGHT   &trans                 &trans      &trans      &mkp MB1        &mkp MB3        &mkp MB2        &trans
+&trans  &kp HOME    &trans      &kp END     &trans     &trans      &trans      &trans      &mkp MB4        &mo 9           &mkp MB5        &trans
+&trans  &trans      &trans      &trans      &trans     &trans      &trans      &trans                                                      &trans
             >;
 
-            sensor-bindings = <&rsr_right_left>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_LEFT SCRL_RIGHT>;
         };
 
         shortcut_win {
@@ -408,19 +465,19 @@
 &trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                &trans
             >;
 
-            sensor-bindings = <&rsr_up_down>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         shortcut_mac {
             display-name = "Shortcut_Mac";
             bindings = <
-&trans  &trans  &trans  &trans  &trans                    &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans            &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                          &trans
+&trans  &trans  &trans  &trans  &trans                    &kp LC(LA(BSPC))          &kp LC(LA(U))       &kp LC(LA(UP))      &kp LC(LA(I))       &kp LC(LA(ENTER))
+&trans  &trans  &trans  &trans  &trans            &trans  &kp LC(LA(LG(LEFT)))      &kp LC(LA(LEFT))    &kp LC(LA(C))       &kp LC(LA(RIGHT))   &kp LC(LA(LG(RIGHT)))
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &kp LC(LS(LA(LG(LEFT))))  &kp LC(LA(J))       &kp LC(LA(DOWN))    &kp LC(LA(K))       &kp LC(LS(LA(LG(RIGHT))))
+&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans                                                                                &trans
             >;
 
-            sensor-bindings = <&rsr_up_down>;
+            sensor-bindings = <&rsr_mouse_scroll SCRL_DOWN SCRL_UP>;
         };
 
         ble_win {
