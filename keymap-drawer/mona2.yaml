@@ -476,7 +476,7 @@ layers:
   Shortcut_Mac:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Alt+Gui+UP
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Ctl+Alt+BSPC
@@ -485,9 +485,9 @@ layers:
   - Ctl+Alt+I
   - Ctl+Alt+ENTER
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Alt+Gui+LEFT
+  - Alt+Gui+DOWN
+  - Alt+Gui+RIGHT
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Ctl+Alt+Gui+LEFT
