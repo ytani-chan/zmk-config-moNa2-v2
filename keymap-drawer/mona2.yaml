@@ -16,12 +16,12 @@ layers:
   - {t: D, h: LALT}
   - {t: F, h: LGUI}
   - G
-  - '-'
+  - ;
   - H
   - {t: J, h: RGUI}
   - {t: K, h: RALT}
   - {t: L, h: RCTRL}
-  - {t: ;, h: Mouse_Win}
+  - {t: '-', h: Mouse_Win}
   - {t: Z, h: LSHFT}
   - X
   - C
@@ -59,12 +59,12 @@ layers:
   - {t: D, h: LALT}
   - {t: F, h: LGUI}
   - G
-  - '-'
+  - ;
   - H
   - {t: J, h: RGUI}
   - {t: K, h: RALT}
   - {t: L, h: RCTRL}
-  - {t: ;, h: Mouse_Mac}
+  - {t: '-', h: Mouse_Mac}
   - {t: Z, h: LSHFT}
   - X
   - C
