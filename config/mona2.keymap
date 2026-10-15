@@ -352,7 +352,7 @@
             display-name = "Mac";
             bindings = <
 &kp Q             &kp W         &kp E         &kp R        &kp T                                       &kp Y          &kp U      &kp I      &kp O        &lt 9 P
-&lt 7 A           &mt LCTRL S   &mt LALT D    &mt LGUI F   &kp G                        &kp MINUS      &kp H          &mt RGUI J &mt RALT K &mt RCTRL L  &lt 7 SEMICOLON
+&lt 7 A           &mt LCTRL S   &mt LALT D    &mt LGUI F   &kp G                        &kp SEMICOLON  &kp H          &mt RGUI J &mt RALT K &mt RCTRL L  &lt 7 MINUS
 &mt LSHFT Z       &kp X         &kp C         &kp V        &kp B        &lt 11 AT       &lt 11 SQT     &kp N          &kp M      &kp COMMA  &kp DOT      &mt RSHFT SLASH
 &kp LCTRL         &kp LALT      &kp LGUI      &lt 3 LANG2  &lt 5 SPACE  &lt 7 LANG1     &kp BSPC       &lt 5 ENTER                                       &mo 13
             >;
